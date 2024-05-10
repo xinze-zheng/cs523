@@ -1,4 +1,12 @@
 \section{Related Work}
 \label{sec:related_work}
-
-The related work of your project~\cite{Dijkstra:SOSP:1967}.
+There are previous efforts in understanding device driver in modern system\cite{Kadav:2012}.
+The operator shares a very similar figure with the devce driver. 
+Both of them impose the challenges of reliably bridging the gap between managed system and the underlying operating system interfaces,
+    while the underlying system for device driver is operating system and the underlying system for the operator is Kubernetes.
+Though both modern operating system and cloud management system are complicated, interacting with cloud management system 
+    faces even more problems in handling distributed asynchronous issues.
+The cloud environment raises new classes of reliability challenges like staleness and faults when interacting with cloud management system\cite{Sun:2022}
+    ,which requires extra attention from operator developers to avoid bugs.
+This work focuses on both common reliability problem faced by operator and device driver, 
+    and the newly raised reliability problem in the cloud environment. 
