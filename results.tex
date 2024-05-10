@@ -1,0 +1,48 @@
+\section{Results}
+\label{sec:result}
+\subsection{What are the challenges in writing reliable operator?}
+\subsection{What are the developers' challenges?}
+Operators are responsible for operating a very specifc managed system and it is
+operators' job to reconcile the managed system to the desired state given
+users' expectation. Modern software systems can be gigantuous with tens of
+thousands lines of code and complicated states management required. This
+engenders burdens for operator developers to understand the managed system
+thoroughly, increasing the likelyhood for them to make mistakes in developing
+the operator.
+
+In Figure\ref{fig:contributor}, we collect and visualize the involvement of
+operator developers in contributing to the managed system using GitHub
+repository contributor data. While the absence of operator develoipers'
+contribution to the managed system does not necessarily imply their
+incompetence in understanding the managed system, it is a still a reflective
+metric on the average familiarity of operator developers on the managed system.
+In our dataset, only 19\% of the operator projects have more than half of the
+developers being contributing to the managed system. The proportion of
+developers who are also developing the managed system drops as the operator
+project gets larger. In the two largest operator project in our dataset, with
+regard to the size of developers, only 10\% of the developers are contributors
+to both the managed system and its operator.
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.95\textwidth,height=9cm]{figures/operator-contributor-involvement-breakdown.png}
+    \caption{Operator developers' involvement in the managed system developement}
+    \label{fig:contributor}
+\end{figure*}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.95\textwidth,height=9cm]{figures/operator-loc-bar.png}
+    \caption{LOC and programming language distribution over operators}
+    \label{fig:loc}
+\end{figure*}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.95\linewidth]{figures/operator-contributor-involvement-breakdown.png}
+%     % \vspace{-18pt}
+%     \caption{Popularity of Azure Storage APIs, measured by the number of tests that
+%         use an API across all the studied projects.}
+%     \label{fig:contributor}
+%     \vspace{-15pt}
+% \end{figure}
