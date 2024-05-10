@@ -1,6 +1,38 @@
 \section{Methods}
-To understanding the reliability implications in Kubernetes operators, we
-collect various metrics from 52 popular open-sourced operators, who are
-responsible for managing diverse system including but not limited to message
-queue, database system, distributed synchronization manager. We synthesize
-findings and implications in section\ref{sec:result}.
+To understand the reliability implications in Kubernetes operators, we collect
+various metrics from 52 popular open-sourced operators. Each of the operators
+is then analyzed to understand the complexity of the operators and the
+challenges faced by the developers in writing reliable operators.
+
+\subsection{Operator Selection}
+The 52 operators are selected by students in the UIUC Spring 2024 CS523
+Advanced Operating Systems course. Each student is instructed to choose one
+operators that they are interested in and to ensure the operators are popular,
+mature, and well-maintained. Popularity and maturity are measured by the number
+of stars and forks on GitHub, and the maintenance status is measured by the last
+commit date.
+
+The operators are selected from a variety of domains, including but not limited
+to message queue, database system, and distributed synchronization systems.
+
+The operators selection might not be representative of the entire Kubernetes
+operator ecosystem. The selection might be biased towards the students' interest
+and the managed system they are familiar with.
+
+\subsection{Data Collection}
+We collect the following metrics from the operators:
+
+\begin{itemize}
+  \item \textbf{LOC and programming language distribution}: We collect the
+        number of lines of code (LOC) and the programming language used in
+        writing the operators. We use the LOC as a proxy for the complexity of
+        the operators.
+  \item \textbf{Operator developers' involvement in the managed system
+          development}: We collect the involvement of operator developers in
+        contributing to the managed system using GitHub repository contributor
+        data. We use this metric to understand the familiarity of operator
+        developers with the managed system.
+  % \item \textbf{Managed system complexity}: We collect the number of APIs
+  %     used by the operators to interact with the managed system. We use this
+  %     metric to understand the complexity of the managed system.
+\end{itemize}
