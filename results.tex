@@ -68,8 +68,18 @@ ensure the correctness of the operators, developers write tests to verify the
 correctness of the operators. We analyze the testing practices of the operators
 by counting the number of tests in the operators.
 
-TODO: Add more data and analysis here.
-
+The tests for an operator usualy consist of test for the managed system, operator reconcilation logic, 
+    operator dependent system (e.g. Zookeeper), specific operator feature(e.g. monitor metric for the managed system).
+Traditionally, developers will use unit test for module correctness and regression test for system correctness. 
+In the operators we studied, we observe a strong bias in utilizing e2e tests over unit test.
+For example in Clickhouse-Operator, all of the tests are e2e tests where the whole system are deployed with 
+    custom resources for different contexts.
+This is mainly caused by the importance of testing operator within the Kubernetes environment.
+Runing isolated module for operator merely verifies part of the logic correctness, yet still imposes great difficulties in 
+    feeding test parameters.
+It is more common for developers to exploit the interface (custom resource), which are essentailly the input for the users, to verify 
+    the operator correctness.
+Though there are promises of utilizing interface for testing, there are still challenges like the gigantuous input space for operator.
 \begin{table}[h]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -81,6 +91,7 @@ TODO: Add more data and analysis here.
         CloudNative-pg         & 3K                     & 1426                \\
         TiDB-Operator          & 1.2K                   & 103                 \\
         MinIO-Operator         & 1.1K                   & 80                  \\
+        Clickhouse-Operator    & 1.7K                   & 10                  \\
         \hline
     \end{tabular}
     \caption{Automated Test Breakdown by Operator}
